@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 class Calendar(models.Model):
-    name = models.CharField(max_length=255)
+    name = models.TextField()
     color = models.CharField(max_length=255)
     user = models.ForeignKey(User, related_name='calendars', on_delete=models.CASCADE)
 
@@ -14,7 +14,7 @@ class Calendar(models.Model):
         return self
 
 class Event(models.Model):
-    summary = models.CharField(max_length=255)
+    summary = models.TextField()
     description = models.TextField()
     start = models.DateTimeField()
     end = models.DateTimeField()
