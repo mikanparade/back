@@ -1,11 +1,9 @@
-import requests, json
+import requests
+import json
 
-url = "http://127.0.0.1:8000/api/users/example@example.com"
+data = {"email": "akira@icloud.com", "password": "password"}
 
-data = { "email": "akira@example.com", "password": "password" }
+response = requests.post("http://127.0.0.1:8000/api/users/me/delete", json=data)
 
-data = json.dumps(data)
-
-response = requests.put(url, data=data)
-
-print(response)
+print(response.status_code)
+print(response.json())
